@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { useColorModeValue } from "@/components/ui/color-mode";
 import { useProductStore } from "@/store/product";
+import { toaster } from "@/components/ui/toaster";
 
 const CreatePage = () => {
   const [newProduct, setNewProduct] = React.useState({
@@ -21,8 +22,20 @@ const CreatePage = () => {
 
   const handleAddProduct = async () => {
     const { success, message } = await createProduct(newProduct);
-    console.log("Success:", success);
-    console.log("Message:", message);
+    if (!success) {
+      toaster.create({
+        title: "Error",
+        description: message,
+        type: "error",
+      });
+    } else {
+      console.log("Creating success toaster");
+      toaster.create({
+        title: message,
+        description: message,
+        type: "success",
+      });
+    }
   };
 
   return (
@@ -41,6 +54,7 @@ const CreatePage = () => {
           <VStack spacing={4}>
             <Input
               placeholder="Product Name"
+              i
               name="name"
               value={newProduct.name}
               onChange={(e) =>
