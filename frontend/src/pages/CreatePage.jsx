@@ -29,13 +29,13 @@ const CreatePage = () => {
         type: "error",
       });
     } else {
-      console.log("Creating success toaster");
       toaster.create({
         title: message,
         description: message,
         type: "success",
       });
     }
+    setNewProduct({ name: "", price: "", image: "" });
   };
 
   return (

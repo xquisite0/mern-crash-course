@@ -1,5 +1,13 @@
 import React from "react";
-import { Container, Flex, Text, Link, HStack, Button } from "@chakra-ui/react";
+import {
+  Container,
+  Flex,
+  Text,
+  HStack,
+  Button,
+  Link as ChakraLink,
+} from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
 import { FaPlus } from "react-icons/fa6";
 import { FaRegMoon } from "react-icons/fa";
 import { IoSunnyOutline } from "react-icons/io5";
@@ -24,15 +32,17 @@ const Navbar = () => {
           bgGradient={"linear(to-r, cyan.400, blue.500)"}
           bgClip={"text"}
         >
-          <Link to={"/"}>Product Store 🛒</Link>
+          <ChakraLink as={RouterLink} to={"/"}>
+            Product Store 🛒
+          </ChakraLink>
         </Text>
 
         <HStack spacing={2} alignItems={"center"}>
-          <Link to={"/create"}>
+          <ChakraLink as={RouterLink} to={"/create"}>
             <Button>
               <FaPlus />
             </Button>
-          </Link>
+          </ChakraLink>
           <Button onClick={toggleColorMode}>
             {colorMode === "light" ? <FaRegMoon /> : <IoSunnyOutline />}
           </Button>
