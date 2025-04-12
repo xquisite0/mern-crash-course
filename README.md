@@ -1,6 +1,6 @@
 <h1>Product Store</h1>
 
-<p>**Tech Stack**: Javascript, React, Node, Express, MongoDB, ChakraUI</p>
+<p><b>Tech Stack</b>: Javascript, React, Node, Express, MongoDB, ChakraUI</p>
 
 <p>
 Designed and developed a responsive website layout and components, deployed on Render.<br>
